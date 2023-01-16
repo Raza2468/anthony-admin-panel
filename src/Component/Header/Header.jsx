@@ -90,7 +90,7 @@ function Header() {
 
             {/* Page Conatiner */}
             
-            <Container maxW="container"
+            {/* <Container maxW="container"
                 marginLeft="15%"
                 // spacing='8'
                 p='10'
@@ -114,7 +114,7 @@ function Header() {
                     </Box>
 
                 </Flex>
-            </Container>
+            </Container> */}
 
         </div>
     );

@@ -1,12 +1,10 @@
 import "./App.css";
-import Header from "./Header/Header";
+import { MGALink, HomeScreen } from "./Component/navigation";
 
 function App() {
   return (
     <div>
-      {/* anthony admin panel */}
-      {/* Con */}
-      <Header />
+      <HomeScreen />
     </div>
   );
 }
