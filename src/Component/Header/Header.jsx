@@ -4,10 +4,11 @@ import { DatePicker } from 'antd';
 import { Container, Grid, GridItem, Sidebar, Stack } from '@chakra-ui/react';
 import {
     Box, Center, IconButton, InputLeftElement, Divider, InputGroup, Input,
-    HStack, Heading, Text, Flex, Button, VStack, Image, AspectRatio
+    HStack, Heading, Text, Flex, Button, VStack, Image, AspectRatio, Select
 } from '@chakra-ui/react';
 import PoweroffOutlined from '@ant-design/icons';
 import { SearchIcon, SettingsIcon, BellIcon, ChatIcon, InfoOutlineIcon } from '@chakra-ui/icons';
+import GlArtisan from '../Pages/Gl&Artisan/Gl&Artisan';
 // 
 
 
@@ -42,14 +43,38 @@ function Header() {
                         // rounded="md"
                         // fontWeight="semibold"
                         color="white"
+                        justifyContent="flex-start"
                     > Home</Button>
-                    <Button w="100%" bg="#2347F0" color="white" _hover={{ bg: "#0B67FB" }} _focus={{ boxShadow: "outline", color: "white" }}>New Quote</Button>
-                    <Button w="100%" bg="#2347F0" color="white" _hover={{ bg: "#0B67FB" }} _focus={{ boxShadow: "outline", color: "white" }}>MGA Links</Button>
-                    <Button w="100%" bg="#2347F0" color="white" _hover={{ bg: "#0B67FB" }} _focus={{ boxShadow: "outline", color: "white" }}>Client Search</Button>
-                    <Button w="100%" bg="#2347F0" color="white" _hover={{ bg: "#0B67FB" }} _focus={{ boxShadow: "outline", color: "white" }}>File a Claim</Button>
-                    <Button w="100%" bg="#2347F0" color="white" _hover={{ bg: "#0B67FB" }} _focus={{ boxShadow: "outline", color: "white" }}>Click Financing</Button>
-                    <Button w="100%" bg="#2347F0" color="white" _hover={{ bg: "#0B67FB" }} _focus={{ boxShadow: "outline", color: "white" }}>Resource Center</Button>
-                    <Button w="100%">Log out</Button>
+                    <Select placeholder='New Quoto' color='white'>
+                        <option value='option1' style={{ color: "#2347F0", fontWeight: "bold" }} >GL & Artisan Contractors</option>
+                        <option value='option2' style={{ color: "#2347F0", fontWeight: "bold" }}>Builders Risk</option>
+                        <option value='option3' style={{ color: "#2347F0", fontWeight: "bold" }}>Canine Laibility</option>
+                        <option value='option3' style={{ color: "#2347F0", fontWeight: "bold" }}>Old MErc GL</option>
+                        <option value='option3' style={{ color: "#2347F0", fontWeight: "bold" }}>Commerical GL</option>
+                        <option value='option3' style={{ color: "#2347F0", fontWeight: "bold" }}>Commerical Property</option>
+                        <option value='option3' style={{ color: "#2347F0", fontWeight: "bold" }}>Commerical Package</option>
+                        <option value='option3' style={{ color: "#2347F0", fontWeight: "bold" }}>Home Owners</option>
+                        <option value='option3' style={{ color: "#2347F0", fontWeight: "bold" }}>Dewelling Fine</option>
+                        <option value='option3' style={{ color: "#2347F0", fontWeight: "bold" }}>MTC</option>
+                        <option value='option3' style={{ color: "#2347F0", fontWeight: "bold" }}>APD</option>
+                        <option value='option3' style={{ color: "#2347F0", fontWeight: "bold" }}>Pakage APD MTC</option>
+                        <option value='option3' style={{ color: "#2347F0", fontWeight: "bold" }}>Special Events</option>
+                        <option value='option3' style={{ color: "#2347F0", fontWeight: "bold" }}>Vacant Property</option>
+                        <option value='option3' style={{ color: "#2347F0", fontWeight: "bold" }}>WDBB</option>
+                        <option value='option3' style={{ color: "#2347F0", fontWeight: "bold" }}>Application</option>
+                        <option value='option3' style={{ color: "#2347F0", fontWeight: "bold" }}>Quote Submission</option>
+                        <option value='option3' style={{ color: "#2347F0", fontWeight: "bold" }}>Hiscox Now</option>
+                        <option value='option3' style={{ color: "#2347F0", fontWeight: "bold" }}>Professional Liapility</option>
+                    </Select>
+
+
+                    <Button w="100%" justifyContent="flex-start" bg="#2347F0" color="white" _hover={{ bg: "#0B67FB" }} _focus={{ boxShadow: "outline", color: "white" }}>New Quote</Button>
+                    <Button w="100%" justifyContent="flex-start" bg="#2347F0" color="white" _hover={{ bg: "#0B67FB" }} _focus={{ boxShadow: "outline", color: "white" }}>MGA Links</Button>
+                    <Button w="100%" justifyContent="flex-start" bg="#2347F0" color="white" _hover={{ bg: "#0B67FB" }} _focus={{ boxShadow: "outline", color: "white" }}>Client Search</Button>
+                    <Button w="100%" justifyContent="flex-start" bg="#2347F0" color="white" _hover={{ bg: "#0B67FB" }} _focus={{ boxShadow: "outline", color: "white" }}>File a Claim</Button>
+                    <Button w="100%" justifyContent="flex-start" bg="#2347F0" color="white" _hover={{ bg: "#0B67FB" }} _focus={{ boxShadow: "outline", color: "white" }}>Click Financing</Button>
+                    <Button w="100%" justifyContent="flex-start" bg="#2347F0" color="white" _hover={{ bg: "#0B67FB" }} _focus={{ boxShadow: "outline", color: "white" }}>Resource Center</Button>
+                    <Button w="100%" >Log out</Button>
                 </VStack>
             </Box>
 
@@ -89,7 +114,7 @@ function Header() {
             </Flex>
 
             {/* Page Conatiner */}
-            
+
             {/* <Container maxW="container"
                 marginLeft="15%"
                 // spacing='8'
