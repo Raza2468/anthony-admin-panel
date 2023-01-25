@@ -13,7 +13,7 @@ export default function MGALink() {
 
     return (
         <div>
-            <Header />
+            {/* <Header /> */}
 
             <Container maxW="container" marginLeft="15%" p='10' width="" rounded='lg'
                 boxShadow='md'

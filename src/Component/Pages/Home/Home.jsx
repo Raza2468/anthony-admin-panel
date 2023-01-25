@@ -13,7 +13,7 @@ export default function HomeScreen() {
     return (
 
         <div>
-            <Header />
+            
             <Container maxW="container"
                 marginLeft="15%"
                 // spacing='8'
@@ -32,9 +32,47 @@ export default function HomeScreen() {
                     backgroundColor='#F6F6F6'
                 >
                     <Box flex="1">
-                        <HStack justifyContent='center'>
+                        {/* <HStack justifyContent='center'>
                             <Heading color='#2347F0' fontSize='4xl'>AGENT BULLETINS</Heading>
-                        </HStack>
+                        </HStack> */}
+                        <Flex justifyContent={''} alignItems={'center'} flexDir={'column'} >
+                            <Box color={'blue'} fontWeight={'bold'} fontSize={'3xl'}>AGENT BULLETIN
+                            </Box>
+                            <Box color={'black'} fontSize={'2xl'}>It is a long established fact that a reader will be distracted by the readable content of
+                            </Box>
+                            <Button mt={'6'} color={'white'} bg={'blue'}   >Quotes@gmail.com</Button>
+                        </Flex>
+                        <Flex bg={'blackAlpha.200'} justifyContent={'space-between'} alignItems={'center'} mt={'20px'} flexDir={'column'}   >
+                            <Box color={'black'} fontWeight={'bold'} fontSize={'3xl'}    >Click Advantages :  </Box>
+                            <HStack mb={'20px'} flexShrink={'3'} justifyContent={'space-around'}   >
+                                <Button color={'white'} bg={'blue'}    >
+                                    Earn More Commision
+                                </Button>
+                                <Button color={'white'} bg={'blue'}    >
+                                    Friendly Customer Service
+                                </Button>
+                                <Button color={'white'} bg={'blue'}    >
+                                    Insured Can Make  Payment Online
+                                </Button>
+                            </HStack>
+                            <HStack mb={'20px'}       >
+                                <Button color={'white'} bg={'blue'}    >
+                                    Insured  Recived Reminder When Late
+                                </Button>
+                                <Button color={'white'} bg={'blue'}    >
+                                    Insured Can   Review   Thier Account Online
+                                </Button>
+                            </HStack>
+                            <HStack>
+                                <Button color={'white'} bg={'blue'}    >
+                                    Finance One Or Multiple Polices On One Contact
+                                </Button>
+                            </HStack>
+                        </Flex>
+                        <Flex mt={'40px'} flexDir={'column'} justifyContent={'center'} alignItems={'center'} >
+                            <Box fontSize={'3xl'} fontWeight={'bold'} >Thank You For Your Understanding </Box>
+                            <Box fontSize={'3xl'} fontWeight={'bold'} >We Hope You Have a Happy and Healthy,   New Year !</Box>
+                        </Flex>
                     </Box>
 
                 </Flex>
