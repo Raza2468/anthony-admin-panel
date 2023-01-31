@@ -37,7 +37,7 @@ function Memos() {
                     <Box flex="1" flex-direction='column'>
                         <VStack>
 
-
+                           
                             <Box
                                 h="280px" width="100%"
                                 rounded='xl'
@@ -60,7 +60,7 @@ function Memos() {
                                         <HStack><Text fontWeight={'bold'} color={'blue'}>INSURED:</Text><Text fontWeight={'bold'}>Name</Text></HStack>
                                         <HStack><Text fontWeight={'bold'} color={'blue'}>DBA:</Text><Text fontWeight={'bold'}>Name</Text></HStack>
                                         <HStack><Text fontWeight={'bold'} color={'blue'}>STATE:</Text><Text fontWeight={'bold'}>South Caroline</Text></HStack>
-                                        <HStack><Text fontWeight={'bold'} color={'blue'}>LINE:</Text><Text fontWeight={'bold'}>GL RATED</Text></HStack>
+                                        <HStack><Text fontWeight={'bold'} color={'blue'}>LINE:</Text><Text fontWeight={'bold'}>APD</Text></HStack>
 
                                     </VStack>
 
@@ -211,6 +211,7 @@ function Memos() {
                                         w={'100%'}> <Text>Subject:</Text></HStack>
                                     <HStack
                                         w={'90%'}
+
                                     >
                                         <Textarea />
                                     </HStack>

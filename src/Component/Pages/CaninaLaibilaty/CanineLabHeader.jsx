@@ -16,11 +16,10 @@ import Nodes from './Notes/Notes';
 import GLdrops from './GLdrops/GLdrops';
 import GL from './GL/GL';
 import Diary from './Diary/Diary';
-import Memos from './Memos/Memos';
 
 
 
-export default function GlArtisan({ ResultsPerPageDrop }) {
+export default function CanineLabHeader({ ResultsPerPageDrop }) {
 
     const [PerPage, setPerPage] = useState("GL");
     console.log(PerPage);
@@ -68,7 +67,7 @@ export default function GlArtisan({ ResultsPerPageDrop }) {
                         PerPage === 'Premiums' ? <><GL /></> :
                             PerPage === 'Nodes' ? <><Nodes /></> :
                                 PerPage === 'Diary' ? <><Diary /></> :
-                                    PerPage === 'Memos' ? <><Memos /></> :
+                                    PerPage === 'Memos' ? <><Nodes /></> :
                                         <></>}
         </div>
     )

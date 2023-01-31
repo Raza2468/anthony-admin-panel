@@ -1,12 +1,9 @@
-
-
-
 import { useState } from 'react';
 // import { Container, Grid, GridItem, Sidebar, Stack } from '@chakra-ui/react';
 import {
     Box, Center, IconButton, InputLeftElement, Divider, InputGroup, Input,
     HStack, Heading, Text, Flex, VStack, Image, AspectRatio, Accordion,
-    AccordionItem,Container,
+    AccordionItem, Container,
     AccordionButton, Button,
     AccordionPanel, Select,
     AccordionIcon, FormLabel, FormControl
@@ -26,7 +23,7 @@ export default function GL() {
             <Container maxW="container" marginLeft="15%" p='10' width="" rounded='lg'
                 boxShadow='md'
                 columns={{ sm: 2, md: 4 }}
-                // backgroundColor='red.100'
+            // backgroundColor='red.100'
             // spacing='8'
             // textAlign='center'
             // backgroundColor='#F6F6F6'

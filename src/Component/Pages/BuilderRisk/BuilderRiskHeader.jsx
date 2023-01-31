@@ -14,18 +14,18 @@ import Header from '../../Header/Header'
 import { Checkbox } from 'antd';
 import Nodes from './Notes/Notes';
 import GLdrops from './GLdrops/GLdrops';
-import GL from './GL/GL';
 import Diary from './Diary/Diary';
+import BuilderRisk from './BuilderRiskGL/BuilderRisk';
 import Memos from './Memos/Memos';
 
 
 
-export default function GlArtisan({ ResultsPerPageDrop }) {
+export default function BuilderRiskHeader({ ResultsPerPageDrop }) {
 
-    const [PerPage, setPerPage] = useState("GL");
-    console.log(PerPage);
+    const [PerPage, setPerPage] = useState("BuilderRisk");
 
-    console.log(ResultsPerPageDrop, "ResultsPerPageDropResultsPerPageDrop");
+    // console.log(PerPage);
+    // console.log(ResultsPerPageDrop, "ResultsPerPageDropResultsPerPageDrop");
 
 
 
@@ -44,7 +44,7 @@ export default function GlArtisan({ ResultsPerPageDrop }) {
                         <HStack justifyContent='center' boxShadow='2xl' style={{ justifyContent: "space-around" }} width='90%' height='10vh' align='center' rounded='md' mt="4">
                             {/* <Heading color='#2347F0' fontSize='4xl'>MGA Link</Heading> */}
                             {/* <Box boxShadow='md'> */}
-                            <Text onClick={() => setPerPage('GL')} cursor="pointer" _hover={{ textDecoration: "underLine" }}>GL</Text>
+                            <Text onClick={() => setPerPage('BuilderRisk')} cursor="pointer" _hover={{ textDecoration: "underLine" }}>Builder Risk</Text>
                             <Text onClick={() => setPerPage('Premiums')} cursor="pointer" _hover={{ textDecoration: "underLine" }}>Premiums</Text>
                             <Text onClick={() => setPerPage('Nodes')} cursor="pointer" _hover={{ textDecoration: "underLine" }}>Notes</Text>
                             <Text onClick={() => setPerPage('Diary')} cursor="pointer" _hover={{ textDecoration: "underLine" }}>Diary</Text>
@@ -64,12 +64,12 @@ export default function GlArtisan({ ResultsPerPageDrop }) {
 
             {
                 // PerPage === 'GLGrop' ? <><GLdrops /></> :
-                    PerPage === 'GL' ? <><GL /></> :
-                        PerPage === 'Premiums' ? <><GL /></> :
-                            PerPage === 'Nodes' ? <><Nodes /></> :
-                                PerPage === 'Diary' ? <><Diary /></> :
-                                    PerPage === 'Memos' ? <><Memos /></> :
-                                        <></>}
+                PerPage === 'BuilderRisk' ? <><BuilderRisk /></> :
+                    PerPage === 'Premiums' ? <><BuilderRisk /></> :
+                        PerPage === 'Nodes' ? <><Nodes /></> :
+                            PerPage === 'Diary' ? <><Diary /></> :
+                                PerPage === 'Memos' ? <><Memos /></> :
+                                    <></>}
         </div>
     )
 }

@@ -8,8 +8,8 @@ import {
 // import GlArtisan from '../Gl&Artisan';
 // import { Link } from 'react-router-dom';
 import { useNavigate } from "react-router-dom"
-import GlArtisan from '../Gl&Artisan';
-import GL from '../GL/GL';
+import GlArtisan from '../APDheader';
+// import GL from '../GL/BuilderRisk';
 
 function GLdrops() {
 
