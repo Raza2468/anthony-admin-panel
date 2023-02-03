@@ -17,18 +17,15 @@ import FileAclaim from '../Pages/FileAclaim/FileAclaim';
 import BuilderRiskHeader from '../Pages/BuilderRisk/BuilderRiskHeader';
 import APDheader from '../Pages/APD/APDheader';
 import CanineLabHeader from '../Pages/CaninaLaibilaty/CanineLabHeader';
+import MTCheader from '../Pages/MTC/MTCheader';
+import FloodHeader from '../Pages/Floot/FloodHeader';
 
 
 
 function Header(props) {
-
     const [resultsPerPage, setResultsPerPage] = useState("/");
     console.log(resultsPerPage);
     const [openMenu, setOpenMenu] = useState("large")
-
-
-
-
     return (
         <div>
             {/* Side Bar */}
@@ -38,9 +35,6 @@ function Header(props) {
                 boxShadow="base"
                 w={openMenu == "small" ? "75px" : "15%"}
             >
-
-
-
                 <VStack >
                     <Divider />
                     <HStack spacing={1} alignItems="center" w="full" marginBottom="6">
@@ -54,7 +48,6 @@ function Header(props) {
                     </HStack>
                     <Divider />
                     <br />
-
                     <Button w="100%" bg="#2347F0" _hover={{ bg: "#0B67FB" }} _focus={{ boxShadow: "outline", color: "white" }}
                         color="white"
                         justifyContent="flex-start"
@@ -72,7 +65,8 @@ function Header(props) {
                         <option value='option7' style={{ color: "#2347F0", fontWeight: "bold" }}>Commerical Package</option>
                         <option value='option8' style={{ color: "#2347F0", fontWeight: "bold" }}>Home Owners</option>
                         <option value='option9' style={{ color: "#2347F0", fontWeight: "bold" }}>Dewelling Fine</option>
-                        <option value='option10' style={{ color: "#2347F0", fontWeight: "bold" }}>MTC</option>
+                        <option value='/FloodHeader' style={{ color: "#2347F0", fontWeight: "bold" }}>Flood</option>
+                        <option value='/MTCheader' style={{ color: "#2347F0", fontWeight: "bold" }}>MTC</option>
                         <option value='/APDheader' style={{ color: "#2347F0", fontWeight: "bold" }}>APD</option>
                         <option value='option12' style={{ color: "#2347F0", fontWeight: "bold" }}>Pakage APD MTC</option>
                         <option value='option13' style={{ color: "#2347F0", fontWeight: "bold" }}>Special Events</option>
@@ -83,7 +77,6 @@ function Header(props) {
                         <option value='option18' style={{ color: "#2347F0", fontWeight: "bold" }}>Hiscox Now</option>
                         <option value='option19' style={{ color: "#2347F0", fontWeight: "bold" }}>Professional Liapility</option>
                     </Select>
-
                     <Button w="100%" justifyContent="flex-start" bg="#2347F0" color="white" _hover={{ bg: "#0B67FB" }} _focus={{ boxShadow: "outline", color: "white" }}><Link href='http://clickfinancing.net/' isExternal >Click Financing</Link></Button>
                     <Button w="100%" justifyContent="flex-start" bg="#2347F0" color="white" _hover={{ bg: "#0B67FB" }} _focus={{ boxShadow: "outline", color: "white" }}>MGA Links</Button>
                     <Button w="100%" justifyContent="flex-start" bg="#2347F0" color="white" _hover={{ bg: "#0B67FB" }} _focus={{ boxShadow: "outline", color: "white" }} onClick={() => setResultsPerPage('ClientSearch')}>Client Search</Button>
@@ -95,7 +88,6 @@ function Header(props) {
             </Box>
             {/* Header 1 */}
             <Flex p={4} color="white" justifyContent="center" backgroundColor="#F6F6F6" boxShadow='xl'>
-
                 <Box flex="1" marginLeft="16%">
                     {/* <Flex
                         p="5"
@@ -108,19 +100,14 @@ function Header(props) {
                         // mt="5"
                         // _hover={{ background: "none" }}
                         icon={<HamburgerIcon />}
-
                         onClick={() => {
                             if (openMenu == 'small') {
                                 setOpenMenu('large')
                             } else {
                                 setOpenMenu('small')
-
                             }
                         }}
                     />
-
-
-
                     {/* </Flex> */}
                     <InputGroup w="55%" variant='outline'>
                         <InputLeftElement
@@ -130,8 +117,6 @@ function Header(props) {
                         <Input type='tel' placeholder='Search' boxShadow='outline' />
                     </InputGroup>
                 </Box>
-
-
                 <Box flex="1" w="40%">
                     <HStack justifyContent="space-between">
                         <Text fontSize='2xl' color="black" ><SettingsIcon color="#2347F0" /></Text>
@@ -152,12 +137,12 @@ function Header(props) {
                     </HStack>
                 </Box>
             </Flex>
-
-
             {(resultsPerPage === 'home') ? (<><HomeScreen /></>) :
                 resultsPerPage === '/GlArtisan' ? (<><GlArtisan /></>) :
                     resultsPerPage === '/BuilderRisk' ? (<><BuilderRiskHeader /></>) :
                         resultsPerPage === '/APDheader' ? (<><APDheader /></>) :
+                        resultsPerPage === '/MTCheader' ? (<><MTCheader /></>) :
+                        resultsPerPage === '/FloodHeader' ? (<><FloodHeader /></>) :
                             resultsPerPage === '/CanineLabHeader' ? (<><CanineLabHeader /></>) :
                                 (resultsPerPage === 'ClientSearch') ? (<><ClientSearch /></>) :
                                     (resultsPerPage === 'FileAclaim') ? (<><FileAclaim /></>)
