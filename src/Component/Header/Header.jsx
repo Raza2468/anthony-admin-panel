@@ -1,61 +1,115 @@
-import React, { useState } from 'react';
-import "./Header.css";
+
+
+import React, { useState } from 'react'
 import {
-    Box, Center, IconButton, InputLeftElement, Divider, InputGroup, Input,
-    HStack, Heading, Text, Flex, Button, VStack, Image, AspectRatio, Select, Container, Link
+    Flex,
+    Text,
+    IconButton, InputGroup,
+    Divider, Input,
+    Avatar, Button,
+    Heading, HStack, Box,
+    Select, InputLeftElement
 } from '@chakra-ui/react';
-import HamburgerIcon from '@ant-design/icons';
 import { SearchIcon, SettingsIcon, BellIcon, ChatIcon, InfoOutlineIcon } from '@chakra-ui/icons';
-// import GlArtisan from '../Pages/Gl&Artisan/Gl&Artisan';
-// import Builderisk from '../Pages/Builderisk/Builderisk';
+import {
+    FiMenu,
+    FiHome,
+    FiCalendar,
+    FiUser,
+    FiDollarSign,
+    FiBriefcase,
+    FiSettings
+} from 'react-icons/fi'
+import { IoPawOutline } from 'react-icons/io5'
+import NavItem from './nav'
 import HomeScreen from '../Pages/Home/Home';
 // import { Link, NavLink, withRouter } from 'react-router-dom';
 import GlArtisan from '../Pages/Gl&Artisan/Gl&Artisan';
-import GLdrops from '../Pages/Gl&Artisan/GLdrops/GLdrops';
-import ClientSearch from '../Pages/ClientSearch/ClientSearch';
-import FileAclaim from '../Pages/FileAclaim/FileAclaim';
 import BuilderRiskHeader from '../Pages/BuilderRisk/BuilderRiskHeader';
 import APDheader from '../Pages/APD/APDheader';
-import CanineLabHeader from '../Pages/CaninaLaibilaty/CanineLabHeader';
 import MTCheader from '../Pages/MTC/MTCheader';
 import FloodHeader from '../Pages/Floot/FloodHeader';
+import ClientSearch from '../Pages/ClientSearch/ClientSearch';
+import CanineLabHeader from '../Pages/CaninaLaibilaty/CanineLabHeader';
+import FileAclaim from '../Pages/FileAclaim/FileAclaim';
+import GLdrops from '../Pages/Gl&Artisan/GLdrops/GLdrops';
 
+export default function Header() {
 
-
-function Header(props) {
+    const [navSize, changeNavSize] = useState("large")
     const [resultsPerPage, setResultsPerPage] = useState("home");
     const [MGAOptions, setMGAOptions] = useState("");
-    // console.log(resultsPerPage);
-    const [openMenu, setOpenMenu] = useState("large")
+
     return (
         <div>
-            {/* Side Bar */}
-            <Box position="fixed" left={0}
-                p={7} top={0} h="100%" bg="#2347F0"
-                overflowX="auto"
-                boxShadow="base"
-                w={openMenu == "small" ? "75px" : "15%"}
-            >
-                <VStack >
-                    <Divider />
-                    <HStack spacing={1} alignItems="center" w="full" marginBottom="6">
-                        <AspectRatio ratio={1} w={14}>
-                            <Image src="https://icon-library.com/images/admin-icon-png/admin-icon-png-12.jpg" alt="Skateboard" />
-                        </AspectRatio>
-                        <VStack w="full" color="white" spacing={0} alignItems="flex-start">
-                            <Heading size="1">Amelia Isabella</Heading>
-                            <Text>Premium User</Text>
-                        </VStack>
-                    </HStack>
-                    <Divider />
-                    <br />
-                    <Button w="100%" bg="#2347F0" _hover={{ bg: "#0B67FB" }} _focus={{ boxShadow: "outline", color: "white" }}
-                        color="white"
-                        justifyContent="flex-start"
-                        onClick={() => setResultsPerPage('home')}> Home</Button>
-                    {/* </Link> */}
 
-                    <Select placeholder='New Quoto' color='white'
+
+            <Flex
+                pos="fixed"
+                // pos={navSize == "small" ? "fixed" : "sticky"}
+                left="5"
+                h="100%"
+                // marginTop="2.5vh"
+                boxShadow="0 4px 12px 0 rgba(0, 0, 0, 0.05)"
+                borderRadius={navSize == "small" ? "15px" : "30px"}
+                w={navSize == "small" ? "75px" : "200px"}
+                flexDir="column"
+                justifyContent="space-between"
+
+            // position="fixed"
+            // left={0}
+            // p={7}
+            // top={0}
+            // h="100%"
+            // bg="#2347F0"
+            // overflowX="auto"
+            // boxShadow="base"
+
+            >
+
+                <Flex
+                    p="5%"
+                    flexDir="column"
+                    w="100%"
+                    alignItems={navSize == "small" ? "center" : "flex-start"}
+                    as="nav"
+
+                >
+                    <IconButton
+                        background="none"
+                        mt={5}
+                        w={navSize == "small" ? "75px" : "400px"}
+                        _hover={{ background: 'none' }}
+                        icon={<FiMenu />}
+                        onClick={() => {
+                            if (navSize == "small")
+                                changeNavSize("large")
+                            else
+                                changeNavSize("small")
+                        }}
+                    />
+                    <Flex align="center">
+
+                        <Avatar size="sm" src="avatar-1.jpg" />
+
+                        <Flex flexDir="column" ml={4} display={navSize == "small" ? "none" : "flex"}>
+                            <Heading as="h3" size="sm">Sylwia Weller</Heading>
+                            <Text color="gray">Admin</Text>
+
+                        </Flex>
+
+
+                    </Flex>
+                    <Divider display={navSize == "small" ? "none" : "flex"} />
+
+
+                    <NavItem navSize={navSize} icon={FiHome} title="Dashboard" description="This is the description for the dashboard." />
+                    <NavItem navSize={navSize} icon={FiCalendar} title="Calendar" active />
+                    <NavItem navSize={navSize} icon={FiUser} title="Clients" />
+                    <NavItem navSize={navSize} icon={IoPawOutline} title="Animals" />
+                    <NavItem navSize={navSize} icon={FiDollarSign} title="Stocks" />
+                    <NavItem navSize={navSize} icon={FiBriefcase} title="Reports" />
+                    <Select placeholder='New Quoto' navSize={navSize}
                         value={resultsPerPage} onChange={(event) => setResultsPerPage(event.target.value)}
                     >
                         <option value='/GlArtisan' style={{ color: "#2347F0", fontWeight: "bold" }}>GL & Artisan Contractors</option>
@@ -79,62 +133,46 @@ function Header(props) {
                         <option value='option18' style={{ color: "#2347F0", fontWeight: "bold" }}>Hiscox Now</option>
                         <option value='option19' style={{ color: "#2347F0", fontWeight: "bold" }}>Professional Liapility</option>
                     </Select>
-                    <Button w="100%" justifyContent="flex-start" bg="#2347F0" color="white" _hover={{ bg: "#0B67FB" }} _focus={{ boxShadow: "outline", color: "white" }}><Link href='http://clickfinancing.net/' isExternal >Click Financing</Link></Button>
-                    {/* <Button w="100%" justifyContent="flex-start" bg="#2347F0" color="white" _hover={{ bg: "#0B67FB" }} _focus={{ boxShadow: "outline", color: "white" }}>MGA Links</Button> */}
-                    <Select placeholder='MGA Links' color='white'
-                        value={MGAOptions} onChange={(event) => window.open(event.target.value)}
-                    >
+                    <NavItem navSize={navSize} icon={FiSettings} title="Settings" />
+                </Flex>
+
+                {/* <Flex
+                    p="5%"
+                    flexDir="column"
+                    w="100%"
+                    alignItems={navSize == "small" ? "center" : "flex-start"}
+                    mb={4}
+                >
+                    <Divider display={navSize == "small" ? "none" : "flex"} />
+                    <Flex mt={4} align="center">
+                    <Avatar size="sm" src="avatar-1.jpg" />
+                    <Flex flexDir="column" ml={4} display={navSize == "small" ? "none" : "flex"}>
+                    <Heading as="h3" size="sm">Sylwia Weller</Heading>
+                    <Text color="gray">Admin</Text>
+                    </Flex>
+                </Flex>
+
+                </Flex> */}
+
+            </Flex>
 
 
-                        <option value='option1' style={{ color: "#2347F0", fontWeight: "bold" }}>Administer</option>
-                        <option value='https://cloud.docstar.com/' style={{ color: "#2347F0", fontWeight: "bold" }}><Link href='https://cloud.docstar.com/' isExternal >Docstar Eclipse</Link></option>
-                        <option value='https://login.siteinspections.com/login.aspx?ReturnUrl=%2f' style={{ color: "#2347F0", fontWeight: "bold" }}><Link href='' isExternal >Site Inspections</Link></option>
-                        <option value='https://www.castledataservices.com/CastleClient/login.aspx' style={{ color: "#2347F0", fontWeight: "bold" }}><Link href='' isExternal >Castle Inspections</Link></option>
-                        <option value='http://aces.atlanticcasualty.net/aci_web/login.aspx' style={{ color: "#2347F0", fontWeight: "bold" }}><Link href='' isExternal >Atlantic Casualty</Link></option>
-                        <option value='https://www.argolimited.com/pages/argo-group-home/our-brands/colony-specialty' style={{ color: "#2347F0", fontWeight: "bold" }}><Link href='' isExternal >Colony</Link></option>
-                        <option value='http://npic.com/agents.html' style={{ color: "#2347F0", fontWeight: "bold" }}><Link href='' isExternal >North Pointe</Link></option>
-                        <option value='https://escape.torusinsurance.com/excess/default.aspx' style={{ color: "#2347F0", fontWeight: "bold" }}><Link href='' isExternal >Torus</Link></option>
-                        <option value='https://apps8.fldfs.com/proofofcoverage/Search.aspx' style={{ color: "#2347F0", fontWeight: "bold" }}><Link href='' isExternal >FL Work Comp lookup</Link></option>
-                        <option value='https://www.myfloridalicense.com/wl11.asp?mode=0&amp;SID=' style={{ color: "#2347F0", fontWeight: "bold" }}><Link href='' isExternal >FL contractor license search</Link></option>
-                        <option value='http://www.portal.state.pa.us/portal/server.pt?open=514&amp;objID=552709&amp;mode=2' style={{ color: "#2347F0", fontWeight: "bold" }}><Link href='' isExternal >PA Wok Comp lookup</Link></option>
-                        <option value='https://www.ewccv.com/cvs/?ref=https%3A%2F%2Fsbwc.georgia.gov%2Fonline-employers-workers-compensation-coverage-verification' style={{ color: "#2347F0", fontWeight: "bold" }}><Link href='' isExternal >Georgia Work Comp lookup</Link></option>
-                        <option value='https://ecorp.sos.ga.gov/BusinessSearch' style={{ color: "#2347F0", fontWeight: "bold" }}><Link href='' isExternal >Georgia Div of Corporations</Link></option>
-                        <option value='http://verify.sos.ga.gov/verification/Search.aspx' style={{ color: "#2347F0", fontWeight: "bold" }}><Link href='' isExternal >Georgia contractor license search</Link></option>
-                        <option value='' style={{ color: "#2347F0", fontWeight: "bold" }}>Evolve Links</option>
-                        <option value='http://www.lloyds.com/the-market/tools-and-resources/tools-e-services/binding-authority-registration-bar' style={{ color: "#2347F0", fontWeight: "bold" }}><Link href='' isExternal >BAR</Link></option>
-                        <option value='http://www.lloyds.com/The-Market/Tools-and-Resources/Tools-E-Services/Atlas' style={{ color: "#2347F0", fontWeight: "bold" }}><Link href='' isExternal >ATLAS</Link></option>
-                        <option value='https://lloydscanada.com/' style={{ color: "#2347F0", fontWeight: "bold" }}><Link href='' isExternal >Lineage </Link></option>
-                        <option value='http://www.lloyds.com/The-Market/Tools-and-Resources/Tools-E-Services/QA-Tool/Binding-Authority-QA-Tool' style={{ color: "#2347F0", fontWeight: "bold" }}><Link href='' isExternal >BA Quality Assurance</Link></option>
-                        <option value='http://www.lloyds.com/The-Market/Tools-and-Resources/Tools-E-Services/Crystal' style={{ color: "#2347F0", fontWeight: "bold" }}><Link href='' isExternal >Crystal</Link></option>
-                        <option value='http://www.lloyds.com/the-market/tools-and-resources/tools-e-services/qa-tool/open-market-qa-tool' style={{ color: "#2347F0", fontWeight: "bold" }}><Link href='' isExternal >OM Quality Assurance</Link></option>
-                        <option value='https://www.lloydswordings.com/lma/auth/login.do?req_url=https://www.lloydswordings.com/lma/app/start.do' style={{ color: "#2347F0", fontWeight: "bold" }}><Link href='' isExternal >Wordings Reposity</Link></option>
-                        <option value='https://telussecurecontracts.com/flex/login.jsp' style={{ color: "#2347F0", fontWeight: "bold" }}><Link href='https://telussecurecontracts.com/flex/login.jsp' isExternal >Attorney In Fact</Link></option>
-                        <option value='https://www.liiba.co.uk/liiba/default.aspx' style={{ color: "#2347F0", fontWeight: "bold" }}><Link href='' isExternal >LIIBA</Link></option>
-                        <option value='http://www.lloyds.com/' style={{ color: "#2347F0", fontWeight: "bold" }}><Link href='' isExternal >Lloyd’s</Link></option>
-                    </Select>
 
-
-                    <Button w="100%" justifyContent="flex-start" bg="#2347F0" color="white" _hover={{ bg: "#0B67FB" }} _focus={{ boxShadow: "outline", color: "white" }} onClick={() => setResultsPerPage('ClientSearch')}>Client Search</Button>
-                    <Button w="100%" justifyContent="flex-start" bg="#2347F0" color="white" _hover={{ bg: "#0B67FB" }} _focus={{ boxShadow: "outline", color: "white" }} onClick={() => setResultsPerPage('FileAclaim')}>File a Claim</Button>
-                    {/* <Button w="100%" justifyContent="flex-start" bg="#2347F0" color="white" _hover={{ bg: "#0B67FB" }} _focus={{ boxShadow: "outline", color: "white" }}>Click Financing</Button> */}
-                    <Button w="100%" justifyContent="flex-start" bg="#2347F0" color="white" _hover={{ bg: "#0B67FB" }} _focus={{ boxShadow: "outline", color: "white" }}>Resource Center</Button>
-                    <Button w="100%" >Log out</Button>
-                </VStack>
-            </Box>
-            {/* Header 1 */}
-            <Flex p={4} color="white" justifyContent="center" backgroundColor="#F6F6F6" boxShadow='xl'>
-                <Box flex="1" marginLeft="16%">
+            <Flex p={4} color="white" justifyContent="center" marginLeft="16%" backgroundColor="#F6F6F6" boxShadow='xl'>
+                <Box flex="1" marginLeft="1%">
                     {/* <Flex
                         p="5"
                         flexDir="column"
                         as="nav"
                         alignItems='flex-start'
                     > */}
-                    <IconButton
-                        // background='none'
-                        // mt="5"
-                        // _hover={{ background: "none" }}
-                        icon={<HamburgerIcon />}
+                    {/* </Flex> */}
+                    {/* <IconButton
+                        background='red.100'
+                        mt="0"
+                        _hover={{ background: "none" }}
+                   
+                        icon={<FiMenu />}
                         onClick={() => {
                             if (openMenu == 'small') {
                                 setOpenMenu('large')
@@ -142,8 +180,7 @@ function Header(props) {
                                 setOpenMenu('small')
                             }
                         }}
-                    />
-                    {/* </Flex> */}
+                    /> */}
                     <InputGroup w="55%" variant='outline'>
                         <InputLeftElement
                             pointerEvents='none'
@@ -162,7 +199,7 @@ function Header(props) {
                 </Box>
             </Flex>
             {/* Header 2 */}
-            <Flex p={4} color="white" justifyContent="center" backgroundColor='whiteAlpha.100' boxShadow="base">
+            <Flex p={4} color="white" marginLeft="16%" justifyContent="center" backgroundColor='whiteAlpha.100' boxShadow="base">
                 <Box flex="1" marginLeft="16%">
                     <Text fontSize="xl" color="#2347F0" fontWeight='bold'>Home</Text>
                 </Box>
@@ -172,6 +209,7 @@ function Header(props) {
                     </HStack>
                 </Box>
             </Flex>
+
             {(resultsPerPage === 'home') ? (<><HomeScreen /></>) :
                 resultsPerPage === '/GlArtisan' ? (<><GlArtisan /></>) :
                     resultsPerPage === '/BuilderRisk' ? (<><BuilderRiskHeader /></>) :
@@ -184,7 +222,8 @@ function Header(props) {
                                                 (MGAOptions === 'option3') ? (<>{console.log(MGAOptions, "raza")}</>)
                                                     : <></>
             }
+
+
         </div>
-    );
+    )
 }
-export default Header;

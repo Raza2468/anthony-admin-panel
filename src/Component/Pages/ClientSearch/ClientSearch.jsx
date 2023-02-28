@@ -5,7 +5,7 @@ import {
     HStack, Heading, Text, Checkbox, Select, Flex, Button, VStack, Image, AspectRatio
 } from '@chakra-ui/react';
 
-import Header from '../../Header/Header'
+import Header from '../../Header/HeadSideBar'
 
 export default function ClientSearch() {
 

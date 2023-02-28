@@ -10,7 +10,7 @@ import {
     AccordionIcon, FormLabel, FormControl
 } from '@chakra-ui/react';
 
-import Header from '../../Header/Header'
+import Header from '../../Header/HeadSideBar'
 import { Checkbox } from 'antd';
 import Nodes from './Notes/Notes';
 import GLdrops from './GLdrops/GLdrops';

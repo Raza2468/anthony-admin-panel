@@ -4,7 +4,7 @@ import {
     Box, Center, IconButton, InputLeftElement, Divider, InputGroup, Input,
     HStack, Heading, Text, Flex, Button, VStack, Image, AspectRatio
 } from '@chakra-ui/react';
-import Header from '../../Header/Header'
+import Header from '../../Header/HeadSideBar'
 
 
 export default function HomeScreen() {
